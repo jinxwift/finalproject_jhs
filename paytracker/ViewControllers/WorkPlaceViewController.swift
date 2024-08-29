@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WorkPlaceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B36AE786EE2F14DA1456AE8F /* Pods_paytracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9545757613F9CFF0604D0A7F /* Pods_paytracker.framework */; };
 		CB088C282C77607B006EA97F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB088C272C77607B006EA97F /* AppDelegate.swift */; };
 		CB088C2A2C77607B006EA97F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB088C292C77607B006EA97F /* SceneDelegate.swift */; };
-		CB088C2C2C77607B006EA97F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB088C2B2C77607B006EA97F /* ViewController.swift */; };
+		CB088C2C2C77607B006EA97F /* WorkPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */; };
 		CB088C2F2C77607B006EA97F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CB088C2E2C77607B006EA97F /* Base */; };
 		CB088C312C77607C006EA97F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB088C302C77607C006EA97F /* Assets.xcassets */; };
 		CB088C342C77607C006EA97F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CB088C332C77607C006EA97F /* Base */; };
@@ -17,15 +18,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09FF8659AB221109A58E7E13 /* Pods-paytracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-paytracker.debug.xcconfig"; path = "Target Support Files/Pods-paytracker/Pods-paytracker.debug.xcconfig"; sourceTree = "<group>"; };
+		9545757613F9CFF0604D0A7F /* Pods_paytracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_paytracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB088C242C77607B006EA97F /* paytracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = paytracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB088C272C77607B006EA97F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB088C292C77607B006EA97F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB088C2B2C77607B006EA97F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPlaceViewController.swift; sourceTree = "<group>"; };
 		CB088C2E2C77607B006EA97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB088C302C77607C006EA97F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB088C332C77607C006EA97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB088C352C77607C006EA97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB938FA12C7DD58300500081 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		FB1AB502B273993A5AE24263 /* Pods-paytracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-paytracker.release.xcconfig"; path = "Target Support Files/Pods-paytracker/Pods-paytracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B36AE786EE2F14DA1456AE8F /* Pods_paytracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68DCB1748358353AFE6C386C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9545757613F9CFF0604D0A7F /* Pods_paytracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5D1923DABC16982885FD8E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09FF8659AB221109A58E7E13 /* Pods-paytracker.debug.xcconfig */,
+				FB1AB502B273993A5AE24263 /* Pods-paytracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CB088C1B2C77607B006EA97F = {
 			isa = PBXGroup;
 			children = (
 				CB088C262C77607B006EA97F /* paytracker */,
 				CB088C252C77607B006EA97F /* Products */,
+				B5D1923DABC16982885FD8E0 /* Pods */,
+				68DCB1748358353AFE6C386C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +82,32 @@
 		CB088C262C77607B006EA97F /* paytracker */ = {
 			isa = PBXGroup;
 			children = (
-				CB938FA12C7DD58300500081 /* Models.swift */,
+				E914B70D2C7FEBE00076178E /* ViewControllers */,
+				E914B70C2C7FEBCE0076178E /* Model */,
 				CB088C272C77607B006EA97F /* AppDelegate.swift */,
 				CB088C292C77607B006EA97F /* SceneDelegate.swift */,
-				CB088C2B2C77607B006EA97F /* ViewController.swift */,
 				CB088C2D2C77607B006EA97F /* Main.storyboard */,
 				CB088C302C77607C006EA97F /* Assets.xcassets */,
 				CB088C322C77607C006EA97F /* LaunchScreen.storyboard */,
 				CB088C352C77607C006EA97F /* Info.plist */,
 			);
 			path = paytracker;
+			sourceTree = "<group>";
+		};
+		E914B70C2C7FEBCE0076178E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB938FA12C7DD58300500081 /* Models.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E914B70D2C7FEBE00076178E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +117,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB088C382C77607C006EA97F /* Build configuration list for PBXNativeTarget "paytracker" */;
 			buildPhases = (
+				F019E3B7DDB53AE1E92E8E0E /* [CP] Check Pods Manifest.lock */,
 				CB088C202C77607B006EA97F /* Sources */,
 				CB088C212C77607B006EA97F /* Frameworks */,
 				CB088C222C77607B006EA97F /* Resources */,
+				13EDB46BB77BD609CF55A32D /* [CP] Embed Pods Frameworks */,
+				B73CDA80C0D759C603186A65 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,12 +179,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13EDB46BB77BD609CF55A32D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B73CDA80C0D759C603186A65 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F019E3B7DDB53AE1E92E8E0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-paytracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CB088C202C77607B006EA97F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB088C2C2C77607B006EA97F /* ViewController.swift in Sources */,
+				CB088C2C2C77607B006EA97F /* WorkPlaceViewController.swift in Sources */,
 				CB088C282C77607B006EA97F /* AppDelegate.swift in Sources */,
 				CB088C2A2C77607B006EA97F /* SceneDelegate.swift in Sources */,
 				CB938FA22C7DD58300500081 /* Models.swift in Sources */,
@@ -291,6 +393,7 @@
 		};
 		CB088C392C77607C006EA97F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09FF8659AB221109A58E7E13 /* Pods-paytracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -319,6 +422,7 @@
 		};
 		CB088C3A2C77607C006EA97F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB1AB502B273993A5AE24263 /* Pods-paytracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

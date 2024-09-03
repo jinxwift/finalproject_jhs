@@ -86,6 +86,7 @@
 		CB088C262C77607B006EA97F /* paytracker */ = {
 			isa = PBXGroup;
 			children = (
+				CB938FA12C7DD58300500081 /* Models.swift */,
 				E914B70D2C7FEBE00076178E /* ViewControllers */,
 				E914B70C2C7FEBCE0076178E /* Model */,
 				CB088C272C77607B006EA97F /* AppDelegate.swift */,
@@ -101,7 +102,6 @@
 		E914B70C2C7FEBCE0076178E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CB938FA12C7DD58300500081 /* Models.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";

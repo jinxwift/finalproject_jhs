@@ -17,7 +17,6 @@
 		CB938FA22C7DD58300500081 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB938FA12C7DD58300500081 /* Models.swift */; };
 		E914B70F2C805DBC0076178E /* AttendanceCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */; };
 		E914B7112C8532C60076178E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B7102C8532C60076178E /* MainViewController.swift */; };
-		E914B7132C86C4280076178E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B7122C86C4280076178E /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +33,6 @@
 		CB938FA12C7DD58300500081 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCheckViewController.swift; sourceTree = "<group>"; };
 		E914B7102C8532C60076178E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		E914B7122C86C4280076178E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FB1AB502B273993A5AE24263 /* Pods-paytracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-paytracker.release.xcconfig"; path = "Target Support Files/Pods-paytracker/Pods-paytracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +112,6 @@
 				CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */,
 				E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */,
 				E914B7102C8532C60076178E /* MainViewController.swift */,
-				E914B7122C86C4280076178E /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -130,8 +127,6 @@
 				CB088C202C77607B006EA97F /* Sources */,
 				CB088C212C77607B006EA97F /* Frameworks */,
 				CB088C222C77607B006EA97F /* Resources */,
-				13EDB46BB77BD609CF55A32D /* [CP] Embed Pods Frameworks */,
-				B73CDA80C0D759C603186A65 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,40 +184,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13EDB46BB77BD609CF55A32D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B73CDA80C0D759C603186A65 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-paytracker/Pods-paytracker-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F019E3B7DDB53AE1E92E8E0E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,7 +219,6 @@
 				E914B7112C8532C60076178E /* MainViewController.swift in Sources */,
 				CB088C2A2C77607B006EA97F /* SceneDelegate.swift in Sources */,
 				CB938FA22C7DD58300500081 /* Models.swift in Sources */,
-				E914B7132C86C4280076178E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

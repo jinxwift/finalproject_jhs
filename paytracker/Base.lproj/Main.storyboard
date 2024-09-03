@@ -251,14 +251,94 @@
                     <view key="view" contentMode="scaleToFill" id="XIW-G9-Dd8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="근무일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhe-ac-FpC">
+                                <rect key="frame" x="43" y="122" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgW-kY-IZE">
+                                <rect key="frame" x="122" y="122" width="234" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75C-pY-52X">
+                                <rect key="frame" x="43" y="179" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75Q-3x-svu">
+                                <rect key="frame" x="43" y="238" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qq-Hw-5va">
+                                <rect key="frame" x="292" y="539" width="54" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="등록"/>
+                                <connections>
+                                    <action selector="doRegist:" destination="O8a-MY-oZO" eventType="touchUpInside" id="zoe-DI-ISd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idf-Su-miD">
+                                <rect key="frame" x="122" y="179" width="234" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3IT-lU-R0a">
+                                <rect key="frame" x="36" y="283" width="320" height="240"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iF6-0B-VIj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3IT-lU-R0a" firstAttribute="centerX" secondItem="XIW-G9-Dd8" secondAttribute="centerX" id="3Ac-ex-Pw4"/>
+                            <constraint firstItem="dhe-ac-FpC" firstAttribute="top" secondItem="VgW-kY-IZE" secondAttribute="top" id="BRQ-Xa-fct"/>
+                            <constraint firstItem="VgW-kY-IZE" firstAttribute="leading" secondItem="dhe-ac-FpC" secondAttribute="trailing" constant="34" id="Dbm-M4-2zb"/>
+                            <constraint firstItem="VgW-kY-IZE" firstAttribute="trailing" secondItem="Idf-Su-miD" secondAttribute="trailing" id="HvL-Eg-jGl"/>
+                            <constraint firstItem="Idf-Su-miD" firstAttribute="trailing" secondItem="3IT-lU-R0a" secondAttribute="trailing" id="IEL-Eu-Ct2"/>
+                            <constraint firstItem="5Qq-Hw-5va" firstAttribute="top" secondItem="3IT-lU-R0a" secondAttribute="bottom" constant="16" id="LPs-xT-wUz"/>
+                            <constraint firstItem="3IT-lU-R0a" firstAttribute="top" secondItem="75Q-3x-svu" secondAttribute="bottom" constant="24" id="Ml1-9U-Yfy"/>
+                            <constraint firstItem="dhe-ac-FpC" firstAttribute="top" secondItem="iF6-0B-VIj" secondAttribute="top" constant="66" id="TsP-SB-G4g"/>
+                            <constraint firstItem="75C-pY-52X" firstAttribute="leading" secondItem="75Q-3x-svu" secondAttribute="leading" id="Vbu-Z2-2jR"/>
+                            <constraint firstItem="VgW-kY-IZE" firstAttribute="leading" secondItem="Idf-Su-miD" secondAttribute="leading" id="ZFL-Ne-DVJ"/>
+                            <constraint firstItem="iF6-0B-VIj" firstAttribute="bottom" secondItem="5Qq-Hw-5va" secondAttribute="bottom" constant="268" id="ZVq-qm-gZG"/>
+                            <constraint firstItem="dhe-ac-FpC" firstAttribute="leading" secondItem="75C-pY-52X" secondAttribute="leading" id="fc4-iy-BVt"/>
+                            <constraint firstItem="3IT-lU-R0a" firstAttribute="leading" secondItem="iF6-0B-VIj" secondAttribute="leading" constant="36" id="haJ-jx-AdW"/>
+                            <constraint firstItem="Idf-Su-miD" firstAttribute="leading" secondItem="75C-pY-52X" secondAttribute="trailing" constant="15" id="i82-61-LJj"/>
+                            <constraint firstItem="75C-pY-52X" firstAttribute="bottom" secondItem="Idf-Su-miD" secondAttribute="bottom" id="j0r-0z-Z4E"/>
+                            <constraint firstItem="5Qq-Hw-5va" firstAttribute="leading" secondItem="iF6-0B-VIj" secondAttribute="leading" constant="292" id="juY-0X-fuY"/>
+                            <constraint firstItem="75Q-3x-svu" firstAttribute="top" secondItem="75C-pY-52X" secondAttribute="bottom" constant="38" id="o0e-JS-uNy"/>
+                            <constraint firstItem="dhe-ac-FpC" firstAttribute="leading" secondItem="iF6-0B-VIj" secondAttribute="leading" constant="43" id="qMh-SK-mO3"/>
+                            <constraint firstItem="75C-pY-52X" firstAttribute="top" secondItem="Idf-Su-miD" secondAttribute="top" id="sG1-ba-Mwd"/>
+                            <constraint firstItem="75C-pY-52X" firstAttribute="trailing" secondItem="75Q-3x-svu" secondAttribute="trailing" id="t7x-nL-ASu"/>
+                            <constraint firstItem="75C-pY-52X" firstAttribute="top" secondItem="dhe-ac-FpC" secondAttribute="bottom" constant="36" id="vmj-21-9QI"/>
+                            <constraint firstItem="dhe-ac-FpC" firstAttribute="bottom" secondItem="VgW-kY-IZE" secondAttribute="bottom" id="zAt-Rs-8MJ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yDJ-Fi-KBf"/>
+                    <navigationItem key="navigationItem" id="yDJ-Fi-KBf">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="KJ0-Vr-82W">
+                            <connections>
+                                <action selector="doClose:" destination="O8a-MY-oZO" id="P0n-YX-mxX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnRegist" destination="5Qq-Hw-5va" id="q7v-GA-AnD"/>
+                        <outlet property="lblCurrentTime" destination="Idf-Su-miD" id="lLr-Mu-ePx"/>
+                        <outlet property="lblToday" destination="VgW-kY-IZE" id="x5a-pZ-Md7"/>
+                        <outlet property="mapUIView" destination="3IT-lU-R0a" id="yaF-VQ-lhm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1p-aX-cm4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3108" y="-763"/>
+            <point key="canvasLocation" x="3107.6335877862593" y="-763.38028169014092"/>
         </scene>
     </scenes>
     <resources>

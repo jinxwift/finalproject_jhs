@@ -12,7 +12,7 @@
         <!--Work Place View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="vc_work_place" id="BYZ-38-t0r" customClass="WorkPlaceViewController" customModule="paytracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc_work_place" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="WorkPlaceViewController" customModule="paytracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,7 +247,7 @@
         <!--Attendance Check View Controller-->
         <scene sceneID="fcH-Ma-hmO">
             <objects>
-                <viewController storyboardIdentifier="vc_attendance_check" id="O8a-MY-oZO" customClass="AttendanceCheckViewController" customModule="paytracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc_attendance_check" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O8a-MY-oZO" customClass="AttendanceCheckViewController" customModule="paytracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XIW-G9-Dd8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

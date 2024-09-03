@@ -15,6 +15,9 @@
 		CB088C312C77607C006EA97F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB088C302C77607C006EA97F /* Assets.xcassets */; };
 		CB088C342C77607C006EA97F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CB088C332C77607C006EA97F /* Base */; };
 		CB938FA22C7DD58300500081 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB938FA12C7DD58300500081 /* Models.swift */; };
+		E914B70F2C805DBC0076178E /* AttendanceCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */; };
+		E914B7112C8532C60076178E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B7102C8532C60076178E /* MainViewController.swift */; };
+		E914B7132C86C4280076178E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B7122C86C4280076178E /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		CB088C332C77607C006EA97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB088C352C77607C006EA97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB938FA12C7DD58300500081 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCheckViewController.swift; sourceTree = "<group>"; };
+		E914B7102C8532C60076178E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E914B7122C86C4280076178E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FB1AB502B273993A5AE24263 /* Pods-paytracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-paytracker.release.xcconfig"; path = "Target Support Files/Pods-paytracker/Pods-paytracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */,
+				E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */,
+				E914B7102C8532C60076178E /* MainViewController.swift */,
+				E914B7122C86C4280076178E /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -245,8 +254,11 @@
 			files = (
 				CB088C2C2C77607B006EA97F /* WorkPlaceViewController.swift in Sources */,
 				CB088C282C77607B006EA97F /* AppDelegate.swift in Sources */,
+				E914B70F2C805DBC0076178E /* AttendanceCheckViewController.swift in Sources */,
+				E914B7112C8532C60076178E /* MainViewController.swift in Sources */,
 				CB088C2A2C77607B006EA97F /* SceneDelegate.swift in Sources */,
 				CB938FA22C7DD58300500081 /* Models.swift in Sources */,
+				E914B7132C86C4280076178E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,8 +412,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQY92L3W6X;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = paytracker/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "출, 퇴근 등록을 위해 권한 승인이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "출, 퇴근 등록을 위해 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -429,8 +444,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQY92L3W6X;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = paytracker/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "출, 퇴근 등록을 위해 권한 승인이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "출, 퇴근 등록을 위해 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -27,10 +27,12 @@ class UserInfoViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
         setupUI()
+        loadExistingData()
     }
     
     private func setupUI() {
@@ -59,10 +61,24 @@ class UserInfoViewController: UIViewController {
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
     }
     
+    private func loadExistingData() {
+        if let name = UserDefaults.standard.string(forKey: "userName") {
+            nameTextField.text = name
+        }
+        if let email = UserDefaults.standard.string(forKey: "userEmail") {
+            emailTextField.text = email
+        }
+    }
+    
     @objc private func submitButtonTapped() {
         guard let name = nameTextField.text, !name.isEmpty,
               let email = emailTextField.text, !email.isEmpty else {
-            // Show alert for empty fields
+            showAlert(message: "빈칸을 채워주세요.")
+            return
+        }
+        
+        guard isValidEmail(email) else {
+            showAlert(message: "유효한 이메일을 입력해 주세요.")
             return
         }
         
@@ -72,6 +88,18 @@ class UserInfoViewController: UIViewController {
         UserDefaults.standard.set(true, forKey: "userInfoSaved")
         
         navigateToMainTabBar()
+    }
+    
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     private func navigateToMainTabBar() {

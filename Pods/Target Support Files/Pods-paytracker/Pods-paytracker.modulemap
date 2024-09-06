@@ -1,0 +1,6 @@
+framework module Pods_paytracker {
+  umbrella header "Pods-paytracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

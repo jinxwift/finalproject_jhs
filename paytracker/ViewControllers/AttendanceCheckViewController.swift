@@ -16,20 +16,21 @@ class AttendanceCheckViewController: UIViewController {
     @IBOutlet weak var mapUIView: MKMapView!
     @IBOutlet weak var btnRegist: UIButton!
     
-    var locationManager: CLLocationManager? = nil
+    var locationManager: CLLocationManager?
     var isCheckAttended: Bool = false
     
     var currentLocation: CLLocationCoordinate2D?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         locationManager = CLLocationManager()
         
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.startUpdatingLocation()
         
         currentLocation = locationManager?.location?.coordinate
         
@@ -40,20 +41,33 @@ class AttendanceCheckViewController: UIViewController {
         self.lblCurrentTime.text = Date.getCurrentTime()
         
         // 출근지 위치
-        let center = CLLocationCoordinate2D(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude)
+        //        let center = CLLocationCoordinate2D(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude)
+        //
+        //        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        //        let annotation = MKPointAnnotation()
+        //        annotation.coordinate = CLLocationCoordinate2D(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude)
+        //        annotation.title = "출근 위치"
+        //
+        //        self.mapUIView.setRegion(region, animated: true)
+        //        self.mapUIView.addAnnotation(annotation)
         
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let defaultLocation = CLLocationCoordinate2D(latitude: 37.5665, longitude: 126.9780)
+        setupMapView(with: defaultLocation)
+    }
+    
+    private func setupMapView(with location: CLLocationCoordinate2D) {
+        let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude)
-        annotation.title = "출근 위치"
+        annotation.coordinate = location
+        annotation.title = "현재 위치"
         
         self.mapUIView.setRegion(region, animated: true)
+        self.mapUIView.removeAnnotations(self.mapUIView.annotations)
         self.mapUIView.addAnnotation(annotation)
-        
     }
     
     @IBAction func doRegist(_ sender: Any) {
-        // TODO: implement 
+        // TODO: implement
     }
     
     @IBAction func doClose(_ sender: Any) {
@@ -86,11 +100,18 @@ class AttendanceCheckViewController: UIViewController {
 
 extension AttendanceCheckViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let coordinate = locations.last?.coordinate {
-            print(coordinate.latitude)
-            print(coordinate.longitude)
-        }
+        guard let location = locations.last?.coordinate else { return }
+        
+        currentLocation = location
+        setupMapView(with: location)
+        
+        manager.stopUpdatingLocation()
     }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to get location: \(error.localizedDescription)")
+    }
+    
 }
 
 extension Date {

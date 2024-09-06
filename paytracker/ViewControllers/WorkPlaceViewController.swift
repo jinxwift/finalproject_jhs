@@ -26,17 +26,26 @@ class WorkPlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.navigationItem.title = "근무지 입력"
+        title = "근무지"
         
-        // 지도의 중심 좌표와 줌 레벨 설정
-        let center = CLLocationCoordinate2D(latitude: 37.566691, longitude: 126.978365) // default position
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        mapUIView.setRegion(region, animated: true)
+        if let workPlace = DataManager.shared.currentWorkPlace {
+            
+            inputTextWorkPlaceName.text = workPlace.workPlaceName
+            inputTextWorkPlaceAddress.text = workPlace.workPlaceAddress
+            inputTextHourlyWage.text = "\(workPlace.hourlyWage)"
+        }
+        
+//        // 지도의 중심 좌표와 줌 레벨 설정
+//        let center = CLLocationCoordinate2D(latitude: 37.566691, longitude: 126.978365) // default position
+//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+//        mapUIView.setRegion(region, animated: true)
+        
+        
     }
 
-    @IBAction func doClose(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
+//    @IBAction func doClose(_ sender: Any) {
+//        self.dismiss(animated: true)
+//    }
     
     @IBAction func doSearch(_ sender: Any) {
         let workplaceAddress: String = self.inputTextWorkPlaceAddress.text ?? ""
@@ -75,6 +84,8 @@ class WorkPlaceViewController: UIViewController {
         default:
             showToast(self.view, message: "Unknown Error")
         }
+        
+        DataManager.shared.currentWorkPlace = self.workPlaceModel
     }
     
     func checkInputField()-> Int {

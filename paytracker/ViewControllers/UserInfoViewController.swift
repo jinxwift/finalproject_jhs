@@ -6,6 +6,7 @@ class UserInfoViewController: UIViewController {
         textField.placeholder = "이름을 입력하세요"
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.autocapitalizationType = .none
         return textField
     }()
     
@@ -15,6 +16,7 @@ class UserInfoViewController: UIViewController {
         textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.autocapitalizationType = .none
         return textField
     }()
     
@@ -91,7 +93,7 @@ class UserInfoViewController: UIViewController {
     }
     
     private func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailRegEx = "[0-9a-z._%+-]+@[a-z0-9.-]+\\.[a-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }

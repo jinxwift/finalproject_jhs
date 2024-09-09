@@ -124,15 +124,15 @@
 		E914B70D2C7FEBE00076178E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E914B7212C870AE70076178E /* MainTabBarController.swift */,
-				E914B7202C870AE70076178E /* SettingsViewController.swift */,
-				E914B71C2C870AE70076178E /* SplashViewController.swift */,
 				E914B71E2C870AE70076178E /* UIViewControllerExtension.swift */,
+				E914B7212C870AE70076178E /* MainTabBarController.swift */,
+				E914B71C2C870AE70076178E /* SplashViewController.swift */,
+				E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */,
 				E914B71F2C870AE70076178E /* UserInfoViewController.swift */,
 				E914B71D2C870AE70076178E /* WorkStatusViewController.swift */,
 				CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */,
-				E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */,
 				E914B7102C8532C60076178E /* MainViewController.swift */,
+				E914B7202C870AE70076178E /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

@@ -20,9 +20,12 @@ class AttendanceCheckViewController: UIViewController {
     var isCheckAttended: Bool = false
     
     var currentLocation: CLLocationCoordinate2D?
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("AttendanceCheckViewController: viewDidLoad")
         
         // Do any additional setup after loading the view.
         locationManager = CLLocationManager()
@@ -38,7 +41,16 @@ class AttendanceCheckViewController: UIViewController {
         self.btnRegist.titleLabel?.text = isCheckAttended ? "퇴근":"출근"
         
         self.lblToday.text = Date.getCurrentDate()
-        self.lblCurrentTime.text = Date.getCurrentTime()
+        //        self.lblCurrentTime.text = Date.getCurrentTime()
+        updateCurrentTime()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCurrentTime), userInfo: nil, repeats: true)
+        
+        if lblCurrentTime == nil {
+            print("Error: lblCurrentTime is nil")
+        }
+        
+        print("lblCurrentTime frame: \(String(describing: lblCurrentTime?.frame))")
         
         // 출근지 위치
         //        let center = CLLocationCoordinate2D(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude)
@@ -53,6 +65,21 @@ class AttendanceCheckViewController: UIViewController {
         
         let defaultLocation = CLLocationCoordinate2D(latitude: 37.5665, longitude: 126.9780)
         setupMapView(with: defaultLocation)
+    }
+    
+    @objc func updateCurrentTime() {
+        let currentTime = Date.getCurrentTime()
+        self.lblCurrentTime.text = currentTime
+        
+        // Debug: Print current time
+        print("Current time updated: \(currentTime)")
+        
+        // Debug: Check if text is set correctly
+        print("lblCurrentTime text: \(String(describing: lblCurrentTime.text))")
+    }
+    
+    deinit {
+        timer?.invalidate()
     }
     
     private func setupMapView(with location: CLLocationCoordinate2D) {

@@ -20,15 +20,23 @@ class SplashViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private let dbUtils = DBUtils()
+    private var userCount: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setUpDatabase()
         setupUI()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             self?.checkUserInfo()
         }
+    }
+    
+    private func setUpDatabase() {
+        _ = dbUtils.createTable(command: .Worker)
     }
     
     private func setupUI() {
@@ -49,13 +57,15 @@ class SplashViewController: UIViewController {
     }
     
     private func checkUserInfo() {
-        let userDefaults = UserDefaults.standard
-        let userExists = userDefaults.bool(forKey: "UserInfoSaved")
+        let workerData = dbUtils.readData(command: .Worker) as! WorkerModel
         
-        if userExists {
-            navigateToMainTabBar()
-        } else {
+//        let userDefaults = UserDefaults.standard
+//        let userExists = userDefaults.bool(forKey: "UserInfoSaved")
+        
+        if (workerData.name.isEmpty && workerData.email.isEmpty) {
             navigateToUserInfo()
+        } else {
+            navigateToMainTabBar()
         }
     }
     

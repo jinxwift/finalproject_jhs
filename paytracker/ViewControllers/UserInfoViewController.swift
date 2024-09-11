@@ -33,8 +33,20 @@ class UserInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        initDataBase()
         setupUI()
         loadExistingData()
+    }
+    
+    private let dbUtils = DBUtils()
+    private var userCount: Int = 0
+    
+    private func initDataBase() {
+        if (dbUtils.createTable(command: .Worker)) {
+            print("OK")
+        } else {
+            print("Error")
+        }
     }
     
     private func setupUI() {
@@ -64,12 +76,22 @@ class UserInfoViewController: UIViewController {
     }
     
     private func loadExistingData() {
-        if let name = UserDefaults.standard.string(forKey: "userName") {
-            nameTextField.text = name
+        let workerData = dbUtils.readData(command: .Worker) as! WorkerModel
+        
+        if (workerData.name.isEmpty && workerData.email.isEmpty) {
+            userCount = 0
+        } else {
+            userCount = 1
+            nameTextField.text = workerData.name
+            emailTextField.text = workerData.email
         }
-        if let email = UserDefaults.standard.string(forKey: "userEmail") {
-            emailTextField.text = email
-        }
+        
+//        if let name = UserDefaults.standard.string(forKey: "userName") {
+//            nameTextField.text = name
+//        }
+//        if let email = UserDefaults.standard.string(forKey: "userEmail") {
+//            emailTextField.text = email
+//        }
     }
     
     @objc private func submitButtonTapped() {
@@ -89,7 +111,20 @@ class UserInfoViewController: UIViewController {
         UserDefaults.standard.set(email, forKey: "userEmail")
         UserDefaults.standard.set(true, forKey: "userInfoSaved")
         
-        navigateToMainTabBar()
+        let worker = WorkerModel(name: name, email: email)
+        var mode: DBUtils.Mode = .none
+        
+        if (userCount == 0) {
+            mode = .insert
+        } else {
+            mode = .update
+        }
+        if (dbUtils.writeData(command: .Worker, mode: mode, id: 0, model: worker as AnyObject)) {
+            print("[UserInfoVC] DB transaction OK")
+            navigateToMainTabBar()
+        } else {
+            print("[UserInfoVC] DB transaction ERROR")
+        }
     }
     
     private func isValidEmail(_ email: String) -> Bool {

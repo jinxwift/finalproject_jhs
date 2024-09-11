@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class MainTabBarController: UITabBarController {
         attendanceVC.tabBarItem = UITabBarItem(title: "출퇴근", image: UIImage(systemName: "person.crop.circle.badge.checkmark"), tag: 0)
         
         // 근무 현황 (Work Status)
-        let workStatusVC = WorkStatusViewController(worker: WorkerModel(name: "테스트 사용자", email: "test@example.com"))
+        let workStatusVC = WorkStatusViewController(worker: WorkerModel(name: "테스트 사용자", email: "test@example.com"), workplace: WorkPlaceModel(workPlaceName: "", workPlaceAddress: "", workPlaceLocation: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), hourlyWage: 0))
         workStatusVC.tabBarItem = UITabBarItem(title: "근무 현황", image: UIImage(systemName: "clock"), tag: 1)
         
         // 근무지 (Work Place)

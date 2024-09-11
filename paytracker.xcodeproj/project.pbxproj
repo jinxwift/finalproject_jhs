@@ -24,6 +24,8 @@
 		E914B7252C870AE70076178E /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B71F2C870AE70076178E /* UserInfoViewController.swift */; };
 		E914B7262C870AE70076178E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B7202C870AE70076178E /* SettingsViewController.swift */; };
 		E914B7272C870AE70076178E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B7212C870AE70076178E /* MainTabBarController.swift */; };
+		E93E57442C8F15D300FD90A6 /* DBUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93E57432C8F15D300FD90A6 /* DBUtils.swift */; };
+		E93E57462C91135400FD90A6 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93E57452C91135400FD90A6 /* CommonUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		E914B71F2C870AE70076178E /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		E914B7202C870AE70076178E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E914B7212C870AE70076178E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E93E57432C8F15D300FD90A6 /* DBUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUtils.swift; sourceTree = "<group>"; };
+		E93E57452C91135400FD90A6 /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		FB1AB502B273993A5AE24263 /* Pods-paytracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-paytracker.release.xcconfig"; path = "Target Support Files/Pods-paytracker/Pods-paytracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +104,7 @@
 		CB088C262C77607B006EA97F /* paytracker */ = {
 			isa = PBXGroup;
 			children = (
+				E93E57422C8F15B700FD90A6 /* Utils */,
 				E914B70D2C7FEBE00076178E /* ViewControllers */,
 				E914B70C2C7FEBCE0076178E /* Model */,
 				CB088C272C77607B006EA97F /* AppDelegate.swift */,
@@ -135,6 +140,15 @@
 				E914B7202C870AE70076178E /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E93E57422C8F15B700FD90A6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E93E57432C8F15D300FD90A6 /* DBUtils.swift */,
+				E93E57452C91135400FD90A6 /* CommonUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,10 +249,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB088C2C2C77607B006EA97F /* WorkPlaceViewController.swift in Sources */,
+				E93E57462C91135400FD90A6 /* CommonUtils.swift in Sources */,
 				CB088C282C77607B006EA97F /* AppDelegate.swift in Sources */,
 				E914B7272C870AE70076178E /* MainTabBarController.swift in Sources */,
 				E914B7262C870AE70076178E /* SettingsViewController.swift in Sources */,
 				E914B7242C870AE70076178E /* UIViewControllerExtension.swift in Sources */,
+				E93E57442C8F15D300FD90A6 /* DBUtils.swift in Sources */,
 				E914B70F2C805DBC0076178E /* AttendanceCheckViewController.swift in Sources */,
 				E914B7112C8532C60076178E /* MainViewController.swift in Sources */,
 				CB088C2A2C77607B006EA97F /* SceneDelegate.swift in Sources */,

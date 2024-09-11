@@ -2,18 +2,22 @@ import UIKit
 import CoreLocation
 
 class WorkStatusViewController: UIViewController {
-    private let worker: WorkerModel
+    private var worker: WorkerModel
+    private var workplace: WorkPlaceModel
     private var workLogs: [WorkLogModel] = []
-
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
 
     private let workPeriodLabel = UILabel()
     private let workLogsTableView = UITableView()
     private let totalWageLabel = UILabel()
+    
+    private let dbUtils = DBUtils()
 
-    init(worker: WorkerModel) {
+    init(worker: WorkerModel, workplace: WorkPlaceModel) {
         self.worker = worker
+        self.workplace = workplace
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -23,11 +27,19 @@ class WorkStatusViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpDataBase()
         setupBackground()
         setupUI()
         setupConstraints()
+        loadWorkPlace()
         loadWorkLogs()
         updateUI()
+    }
+    
+    private func setUpDataBase() {
+        _ = dbUtils.createTable(command: .WorkPlace)
+        _ = dbUtils.createTable(command: .WorkLog)
+        _ = dbUtils.createTable(command: .Worker)
     }
 
     private func setupUI() {
@@ -80,15 +92,23 @@ class WorkStatusViewController: UIViewController {
 
     private func loadWorkLogs() {
         // 여기서 실제 데이터 로드. 지금은 더미.
-        workLogs = [
-            WorkLogModel(
-                date: Date(),
-                startTime: Date(),
-                endTime: Date(),
-                startPosition: CLLocationCoordinate2D(latitude: 0, longitude: 0),
-                endPosition: CLLocationCoordinate2D(latitude: 0, longitude: 0), 
-                workPlace: WorkPlaceModel(workPlaceName: "Test", workPlaceAddress: "Test Address", workPlaceLocation: CLLocationCoordinate2D(latitude: 0, longitude: 0), hourlyWage: 10000))
-        ]
+        workLogs = dbUtils.readData(command: .WorkLog) as! [WorkLogModel]
+//        workLogs = [
+//            WorkLogModel(
+//                date: Date(),
+//                startTime: Date(),
+//                endTime: Date(),
+//                startPosition: CLLocationCoordinate2D(latitude: 0, longitude: 0),
+//                endPosition: CLLocationCoordinate2D(latitude: 0, longitude: 0))
+//        ]
+    }
+    
+    private func loadWorkPlace() {
+        workplace = dbUtils.readData(command: .WorkPlace) as! WorkPlaceModel
+    }
+    
+    private func loadWorker() {
+        worker = dbUtils.readData(command: .Worker) as! WorkerModel
     }
 
     private func updateUI() {
@@ -108,7 +128,7 @@ class WorkStatusViewController: UIViewController {
 
     private func calculateTotalWage() -> Int {
         // 실제 계산 로직
-        return workLogs.reduce(0) { $0 + $1.workPlace.hourlyWage }
+        return 0 //workLogs.reduce(0) { $0 + $1.workPlace.hourlyWage }
     }
 }
 
@@ -121,7 +141,7 @@ extension WorkStatusViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkLogCell", for: indexPath)
         let workLog = workLogs[indexPath.row]
 
-        cell.textLabel?.text = "Date: \(workLog.date), Wage: \(workLog.workPlace.hourlyWage)원"
+        cell.textLabel?.text = "Date: \(workLog.date), Wage: \(workplace.hourlyWage)원"
 
         return cell
     }

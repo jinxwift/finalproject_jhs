@@ -22,6 +22,12 @@ class AttendanceCheckViewController: UIViewController {
     var currentLocation: CLLocationCoordinate2D?
     var timer: Timer?
     
+    let dbUtils = DBUtils()
+    let commonUtils = CommonUtils()
+    
+    var currentPosition: CLLocationCoordinate2D?
+    var workLog: WorkLogModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,18 +59,22 @@ class AttendanceCheckViewController: UIViewController {
         print("lblCurrentTime frame: \(String(describing: lblCurrentTime?.frame))")
         
         // 출근지 위치
-        //        let center = CLLocationCoordinate2D(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude)
-        //
-        //        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        //        let annotation = MKPointAnnotation()
-        //        annotation.coordinate = CLLocationCoordinate2D(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude)
-        //        annotation.title = "출근 위치"
-        //
-        //        self.mapUIView.setRegion(region, animated: true)
-        //        self.mapUIView.addAnnotation(annotation)
+        currentPosition = CLLocationCoordinate2D(
+            latitude: currentLocation?.latitude ?? 37.5665,
+            longitude: currentLocation?.longitude ?? 126.9780)
+
+        let region = MKCoordinateRegion(center: currentPosition!, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(
+            latitude: currentLocation?.latitude ?? 37.5665,
+            longitude: currentLocation?.longitude ?? 126.9780)
+        annotation.title = "출근 위치"
+
+        self.mapUIView.setRegion(region, animated: true)
+        self.mapUIView.addAnnotation(annotation)
         
-        let defaultLocation = CLLocationCoordinate2D(latitude: 37.5665, longitude: 126.9780)
-        setupMapView(with: defaultLocation)
+//        let defaultLocation = CLLocationCoordinate2D(latitude: 37.5665, longitude: 126.9780)
+        setupMapView(with: currentPosition!)
     }
     
     @objc func updateCurrentTime() {
@@ -82,6 +92,10 @@ class AttendanceCheckViewController: UIViewController {
         timer?.invalidate()
     }
     
+    private func setupDataBase() {
+        _ = dbUtils.createTable(command: .WorkLog)
+    }
+    
     private func setupMapView(with location: CLLocationCoordinate2D) {
         let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         let annotation = MKPointAnnotation()
@@ -94,11 +108,42 @@ class AttendanceCheckViewController: UIViewController {
     }
     
     @IBAction func doRegist(_ sender: Any) {
-        // TODO: implement
+//        let workPlaceLocation = CLLocationCoordinate2D(latitude: 37.5665, longitude: 126.9780)
+//        if (isAttend(distance: getDistance(workerPosition: currentLocation!, workPlacePosition: workPlaceLocation))) {
+            print("Attend")
+            workLog = WorkLogModel(
+                date: commonUtils.stringToDate(dateFormattedString: self.lblToday.text!, format: "yyyy-MM-dd"),
+                startTime: commonUtils.stringToDate(dateFormattedString: self.lblCurrentTime.text!, format: "HH:mm"),
+                endTime: commonUtils.stringToDate(dateFormattedString: self.lblCurrentTime.text!, format: "HH:mm"),
+                startPosition: self.currentPosition!, endPosition: self.currentPosition!)
+            if (dbUtils.writeData(command: .WorkLog, mode: .insert, id: 0, model: workLog! as AnyObject)) {
+                print("OK")
+                showToast(self.view, message: "\(isCheckAttended ? "퇴근":"출근") 등록이 완료 되었습니다.")
+                if (isCheckAttended) {
+                    isCheckAttended = true
+                }
+            } else {
+                print("Error")
+            }
+//        } else {
+//            print("Absent")
+//        }
     }
     
     @IBAction func doClose(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    func getDistance(workerPosition: CLLocationCoordinate2D, workPlacePosition: CLLocationCoordinate2D) -> Double {
+        let workerLocation = CLLocation(latitude: workerPosition.latitude, longitude: workerPosition.longitude)
+        let workPlaceLocation = CLLocation(latitude: workPlacePosition.latitude, longitude: workPlacePosition.longitude)
+        
+        return workerLocation.distance(from: workPlaceLocation)
+    }
+    
+    func isAttend(distance: Double) -> Bool {
+        print("Distance = \(distance)")
+        return distance <= 20.00 ? true : false
     }
     
     func showToast(_ view: UIView, message: String, duration: TimeInterval = 2.0) {

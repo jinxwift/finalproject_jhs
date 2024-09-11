@@ -43,15 +43,15 @@ struct WorkLogModel {
     var endTime: Date                           // 퇴근 시간
     var startPosition: CLLocationCoordinate2D   // 출근 당시 위치 정보
     var endPosition: CLLocationCoordinate2D     // 퇴근 당시 위치 정보
-    var workPlace: WorkPlaceModel
+//    var workPlace: WorkPlaceModel
     
-    init(id: String = UUID().uuidString, date: Date, startTime: Date, endTime: Date, startPosition: CLLocationCoordinate2D, endPosition: CLLocationCoordinate2D, workPlace: WorkPlaceModel) {
+    init(id: String = UUID().uuidString, date: Date, startTime: Date, endTime: Date, startPosition: CLLocationCoordinate2D, endPosition: CLLocationCoordinate2D/*, workPlace: WorkPlaceModel*/) {
         self.id = id
         self.date = date
         self.startTime = startTime
         self.endTime = endTime
         self.startPosition = startPosition
         self.endPosition = endPosition
-        self.workPlace = workPlace
+//        self.workPlace = workPlace
     }
 }

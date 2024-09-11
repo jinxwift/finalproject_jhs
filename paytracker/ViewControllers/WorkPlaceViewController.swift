@@ -20,32 +20,41 @@ class WorkPlaceViewController: UIViewController {
     @IBOutlet weak var mapUIView: MKMapView!
     
     var location: CLLocationCoordinate2D?
-    
     var workPlaceModel: WorkPlaceModel?
+    var isExistWorkPlace = false
+    
+    let dbUtils = DBUtils()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "근무지"
+        _ = dbUtils.createTable(command: .WorkPlace)
         
-        if let workPlace = DataManager.shared.currentWorkPlace {
+        title = "근무지"
+//        if let workPlace = DataManager.shared.currentWorkPlace {
+//            inputTextWorkPlaceName.text = workPlace.workPlaceName
+//            inputTextWorkPlaceAddress.text = workPlace.workPlaceAddress
+//            inputTextHourlyWage.text = "\(workPlace.hourlyWage)"
+//        }
+        
+        workPlaceModel = dbUtils.readData(command: .WorkPlace) as? WorkPlaceModel
+        var latitude = 37.566691
+        var longtutude = 126.978365
+        
+        if (workPlaceModel != nil) {
+            inputTextWorkPlaceName.text = workPlaceModel?.workPlaceName
+            inputTextWorkPlaceAddress.text = workPlaceModel?.workPlaceAddress
+            inputTextHourlyWage.text = "\(workPlaceModel?.hourlyWage ?? 0)"
             
-            inputTextWorkPlaceName.text = workPlace.workPlaceName
-            inputTextWorkPlaceAddress.text = workPlace.workPlaceAddress
-            inputTextHourlyWage.text = "\(workPlace.hourlyWage)"
+            latitude = workPlaceModel?.workPlaceLocation.latitude ?? 37.566691
+            longtutude = workPlaceModel?.workPlaceLocation.longitude ?? 126.978365
         }
         
-//        // 지도의 중심 좌표와 줌 레벨 설정
-//        let center = CLLocationCoordinate2D(latitude: 37.566691, longitude: 126.978365) // default position
-//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-//        mapUIView.setRegion(region, animated: true)
-        
+        let center = CLLocationCoordinate2D(latitude: latitude, longitude: longtutude) // default position
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mapUIView.setRegion(region, animated: true)
         
     }
-
-//    @IBAction func doClose(_ sender: Any) {
-//        self.dismiss(animated: true)
-//    }
     
     @IBAction func doSearch(_ sender: Any) {
         let workplaceAddress: String = self.inputTextWorkPlaceAddress.text ?? ""
@@ -67,7 +76,7 @@ class WorkPlaceViewController: UIViewController {
                 hourlyWage: Int(self.inputTextHourlyWage.text!)!)
             if(doRegistWorkPlaceData()) {
                 showToast(self.view, message: "근무지가 등록 되었습니다.")
-                self.dismiss(animated: true)
+                
             }
         case 1:
             showToast(self.view, message: "[Error] 상호가 입력되지 않았습니다.")
@@ -137,7 +146,18 @@ class WorkPlaceViewController: UIViewController {
             // TODO: implement regist work place data to DB
      */
     func doRegistWorkPlaceData()-> Bool {
-        return true
+        if (isExistWorkPlace) {
+            let data = workPlaceModel as AnyObject
+            if (dbUtils.writeData(command: .WorkPlace, mode: .update, id: 0, model: data)) {
+                return true
+            }
+        } else {
+            let data = workPlaceModel as AnyObject
+            if (dbUtils.writeData(command: .WorkPlace, mode: .insert, id: 0, model: data)) {
+                return true
+            }
+        }
+        return false
     }
     
     /**

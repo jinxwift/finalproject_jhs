@@ -76,7 +76,11 @@ class WorkPlaceViewController: UIViewController {
                 hourlyWage: Int(self.inputTextHourlyWage.text!)!)
             if(doRegistWorkPlaceData()) {
                 showToast(self.view, message: "근무지가 등록 되었습니다.")
+                DataManager.shared.currentWorkPlace = self.workPlaceModel
                 
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.navigateToAttendanceCheck()
+                }
             }
         case 1:
             showToast(self.view, message: "[Error] 상호가 입력되지 않았습니다.")
@@ -93,8 +97,14 @@ class WorkPlaceViewController: UIViewController {
         default:
             showToast(self.view, message: "Unknown Error")
         }
-        
-        DataManager.shared.currentWorkPlace = self.workPlaceModel
+    }
+    
+    private func navigateToAttendanceCheck() {
+        if let tabBarController = self.tabBarController,
+           let viewControllers = tabBarController.viewControllers,
+           let attendanceCheckVC = viewControllers.first(where: { $0 is UINavigationController && ($0 as? UINavigationController)?.viewControllers.first is AttendanceCheckViewController }) as? UINavigationController {
+            tabBarController.selectedViewController = attendanceCheckVC
+        }
     }
     
     func checkInputField()-> Int {

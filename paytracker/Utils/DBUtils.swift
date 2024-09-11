@@ -61,18 +61,17 @@ class DBUtils {
     }
     
     func writeData(command: Command, mode: Mode, id: Int, model: AnyObject) -> Bool {
-        
         var statement: OpaquePointer?
         var query = ""
         
         switch(command) {
         case .WorkLog:
-            let workLog = model as! WorkLogModel
+            guard let workLog = model as? WorkLogModel else { return false }
             let date = commonUtils.dateToString(date: workLog.date, format: "yyyy-MM-dd")
             let startTime = commonUtils.dateToString(date: workLog.startTime, format: "HH:mm")
             let endTime = commonUtils.dateToString(date: workLog.endTime, format: "HH:mm")
             let startPosition = commonUtils.locationToString(location: workLog.startPosition)
-            let endPosition = commonUtils.locationToString(location:workLog.endPosition)
+            let endPosition = commonUtils.locationToString(location: workLog.endPosition)
             print("date = \(date), start_time = \(startTime), end_time = \(endTime), start_position  = \(startPosition), end_position = \(endPosition)")
             if (mode == .insert) {
                 query = "INSERT INTO TBL_WORK (date, start_time, end_time, start_position, end_position) VALUES ('\(date)','\(startTime)','\(endTime)', '\(startPosition)', '\(endPosition)');"
@@ -82,9 +81,8 @@ class DBUtils {
                 print("invalid mode")
                 return false
             }
-            break
         case .Worker:
-            let worker = model as! WorkerModel
+            guard let worker = model as? WorkerModel else { return false }
             let name = worker.name
             let email = worker.email
             print("name = \(name), email = \(email)")
@@ -96,9 +94,8 @@ class DBUtils {
                 print("invalid mode")
                 return false
             }
-            break
         case .WorkPlace:
-            let workPlace = model as! WorkPlaceModel
+            guard let workPlace = model as? WorkPlaceModel else { return false }
             let workPlaceName = workPlace.workPlaceName
             let workPlaceAddress = workPlace.workPlaceAddress
             let workPlaceLocation = commonUtils.locationToString(location: workPlace.workPlaceLocation)
@@ -112,7 +109,6 @@ class DBUtils {
                 print("invalid mode")
                 return false
             }
-            break
         }
         
         if sqlite3_prepare_v2(self.database, query, -1, &statement, nil) == SQLITE_OK {
@@ -135,37 +131,31 @@ class DBUtils {
     }
     
     func readData(command: Command) -> AnyObject? {
-        
-        var statement : OpaquePointer? = nil
+        var statement: OpaquePointer?
         var query = ""
         
         switch (command) {
         case .WorkLog:
             query = "SELECT * FROM TBL_WORK;"
-            break
         case .Worker:
             query = "SELECT * FROM TBL_WORKER;"
-            break
         case .WorkPlace:
             query = "SELECT * FROM TBL_WORKPLACE;"
-            break
         }
         
-        
         if sqlite3_prepare_v2(self.database, query, -1, &statement, nil) == SQLITE_OK {
-            
             switch (command) {
             case .WorkLog:
                 var workLogs = [WorkLogModel]()
                 while (sqlite3_step(statement) == SQLITE_ROW) {
-                    var workLog = WorkLogModel(date: Date(), startTime: Date(), endTime: Date(), startPosition: CLLocationCoordinate2D(), endPosition: CLLocationCoordinate2D())
-                    workLog.date = commonUtils.stringToDate(dateFormattedString: String(cString: sqlite3_column_text(statement, 1)), format: "yyyy-MM-dd")
-                    workLog.startTime = commonUtils.stringToDate(dateFormattedString: String(cString: sqlite3_column_text(statement, 2)), format: "HH:mm:ss")
-                    workLog.endTime = commonUtils.stringToDate(dateFormattedString: String(cString: sqlite3_column_text(statement, 3)), format: "HH:mm:ss")
-                    workLog.startPosition = commonUtils.stringToLocation(locationFormattedString: String(cString: sqlite3_column_text(statement, 4)))
-                    workLog.endPosition = commonUtils.stringToLocation(locationFormattedString: String(cString: sqlite3_column_text(statement, 5)))
-                    
-                    workLogs.append(workLog)
+                    if let date = commonUtils.stringToDate(dateFormattedString: String(cString: sqlite3_column_text(statement, 1)), format: "yyyy-MM-dd"),
+                       let startTime = commonUtils.stringToDate(dateFormattedString: String(cString: sqlite3_column_text(statement, 2)), format: "HH:mm:ss"),
+                       let endTime = commonUtils.stringToDate(dateFormattedString: String(cString: sqlite3_column_text(statement, 3)), format: "HH:mm:ss"),
+                       let startPosition = commonUtils.stringToLocation(locationFormattedString: String(cString: sqlite3_column_text(statement, 4))),
+                       let endPosition = commonUtils.stringToLocation(locationFormattedString: String(cString: sqlite3_column_text(statement, 5))) {
+                        let workLog = WorkLogModel(date: date, startTime: startTime, endTime: endTime, startPosition: startPosition, endPosition: endPosition)
+                        workLogs.append(workLog)
+                    }
                 }
                 sqlite3_finalize(statement)
                 return workLogs as AnyObject
@@ -173,8 +163,7 @@ class DBUtils {
             case .Worker:
                 var worker = WorkerModel(name: "", email: "")
                 if (sqlite3_step(statement) == SQLITE_ROW) {
-                    // 읽은 Data 변수에 담기
-                    worker.name =  String(cString: sqlite3_column_text(statement, 1))
+                    worker.name = String(cString: sqlite3_column_text(statement, 1))
                     worker.email = String(cString: sqlite3_column_text(statement, 2))
                 }
                 sqlite3_finalize(statement)
@@ -185,7 +174,9 @@ class DBUtils {
                 if (sqlite3_step(statement) == SQLITE_ROW) {
                     workPlace.workPlaceName = String(cString: sqlite3_column_text(statement, 1))
                     workPlace.workPlaceAddress = String(cString: sqlite3_column_text(statement, 2))
-                    workPlace.workPlaceLocation = commonUtils.stringToLocation(locationFormattedString: String(cString: sqlite3_column_text(statement, 3)))
+                    if let location = commonUtils.stringToLocation(locationFormattedString: String(cString: sqlite3_column_text(statement, 3))) {
+                        workPlace.workPlaceLocation = location
+                    }
                     workPlace.hourlyWage = Int(sqlite3_column_int(statement, 4))
                 }
                 sqlite3_finalize(statement)
@@ -200,7 +191,7 @@ class DBUtils {
     }
     
     func dropTable(command: Command) -> Bool {
-        
+        // Implement drop table logic here if needed
         return true
     }
 }

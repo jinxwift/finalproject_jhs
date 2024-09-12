@@ -156,7 +156,7 @@ extension WorkStatusViewController: UITableViewDataSource, UITableViewDelegate {
         
         let date = commonUtils.dateToString(date: workLog.date , format: "yyyy-MM-dd")
 
-        cell.textLabel?.text = "Date: \(date) , Wage: \(workplace.hourlyWage)원"
+        cell.textLabel?.text = "근무일: \(date), 급여: \(workplace.hourlyWage)원"
 
         return cell
     }

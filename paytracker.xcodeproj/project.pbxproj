@@ -14,6 +14,8 @@
 		CB088C2F2C77607B006EA97F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CB088C2E2C77607B006EA97F /* Base */; };
 		CB088C312C77607C006EA97F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB088C302C77607C006EA97F /* Assets.xcassets */; };
 		CB088C342C77607C006EA97F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CB088C332C77607C006EA97F /* Base */; };
+		CB6EBB942C93032500F6FA5E /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6EBB932C93032500F6FA5E /* MyProfileViewController.swift */; };
+		CB6EBB962C930E6C00F6FA5E /* DummyDateGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6EBB952C930E6C00F6FA5E /* DummyDateGenerator.swift */; };
 		CB81E9182C8AEB49009182F5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB81E9172C8AEB49009182F5 /* DataManager.swift */; };
 		CB938FA22C7DD58300500081 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB938FA12C7DD58300500081 /* Models.swift */; };
 		E914B70F2C805DBC0076178E /* AttendanceCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */; };
@@ -39,6 +41,8 @@
 		CB088C302C77607C006EA97F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB088C332C77607C006EA97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB088C352C77607C006EA97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB6EBB932C93032500F6FA5E /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		CB6EBB952C930E6C00F6FA5E /* DummyDateGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDateGenerator.swift; sourceTree = "<group>"; };
 		CB81E9172C8AEB49009182F5 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CB938FA12C7DD58300500081 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCheckViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				CB088C322C77607C006EA97F /* LaunchScreen.storyboard */,
 				CB088C352C77607C006EA97F /* Info.plist */,
 				CB81E9172C8AEB49009182F5 /* DataManager.swift */,
+				CB6EBB952C930E6C00F6FA5E /* DummyDateGenerator.swift */,
 			);
 			path = paytracker;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */,
 				E914B7102C8532C60076178E /* MainViewController.swift */,
 				E914B7202C870AE70076178E /* SettingsViewController.swift */,
+				CB6EBB932C93032500F6FA5E /* MyProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -256,12 +262,14 @@
 				E914B7242C870AE70076178E /* UIViewControllerExtension.swift in Sources */,
 				E93E57442C8F15D300FD90A6 /* DBUtils.swift in Sources */,
 				E914B70F2C805DBC0076178E /* AttendanceCheckViewController.swift in Sources */,
+				CB6EBB962C930E6C00F6FA5E /* DummyDateGenerator.swift in Sources */,
 				E914B7112C8532C60076178E /* MainViewController.swift in Sources */,
 				CB088C2A2C77607B006EA97F /* SceneDelegate.swift in Sources */,
 				E914B7222C870AE70076178E /* SplashViewController.swift in Sources */,
 				E914B7252C870AE70076178E /* UserInfoViewController.swift in Sources */,
 				CB938FA22C7DD58300500081 /* Models.swift in Sources */,
 				CB81E9182C8AEB49009182F5 /* DataManager.swift in Sources */,
+				CB6EBB942C93032500F6FA5E /* MyProfileViewController.swift in Sources */,
 				E914B7232C870AE70076178E /* WorkStatusViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

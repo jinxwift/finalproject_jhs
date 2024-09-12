@@ -15,7 +15,7 @@ class SplashViewController: UIViewController {
         let label = UILabel()
         label.text = "PayTracker"
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        label.textColor = .black
+        label.textColor = .label
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -26,11 +26,10 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        setUpDatabase()
         setupUI()
+        setUpDatabase()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [weak self] in
             self?.checkUserInfo()
         }
     }
@@ -40,6 +39,8 @@ class SplashViewController: UIViewController {
     }
     
     private func setupUI() {
+        view.backgroundColor = .systemBackground
+        
         view.addSubview(logoImageView)
         view.addSubview(titleLabel)
         
@@ -58,9 +59,6 @@ class SplashViewController: UIViewController {
     
     private func checkUserInfo() {
         let workerData = dbUtils.readData(command: .Worker) as! WorkerModel
-        
-//        let userDefaults = UserDefaults.standard
-//        let userExists = userDefaults.bool(forKey: "UserInfoSaved")
         
         if (workerData.name.isEmpty && workerData.email.isEmpty) {
             navigateToUserInfo()

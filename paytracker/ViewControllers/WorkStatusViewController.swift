@@ -2,8 +2,8 @@ import UIKit
 import CoreLocation
 
 class WorkStatusViewController: UIViewController {
-    private var worker: WorkerModel
-    private var workplace: WorkPlaceModel
+    private var worker: WorkerModel?
+    private var workplace: WorkPlaceModel?
     private var workLogs: [WorkLogModel] = []
     
     private let scrollView = UIScrollView()
@@ -16,40 +16,38 @@ class WorkStatusViewController: UIViewController {
     private let dbUtils = DBUtils.shared
     private let commonUtils = CommonUtils()
 
-    init(worker: WorkerModel, workplace: WorkPlaceModel) {
-        self.worker = worker
-        self.workplace = workplace
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpDataBase()
-        setupBackground()
+        print("WorkStatusViewController viewDidLoad")
         setupUI()
         setupConstraints()
-        loadWorkPlace()
-        loadWorkLogs()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("WorkStatusViewController viewWillAppear")
+        loadAllData()
         updateUI()
     }
     
-    private func setUpDataBase() {
-        _ = dbUtils.createTable(command: .WorkPlace)
-        _ = dbUtils.createTable(command: .WorkLog)
-        _ = dbUtils.createTable(command: .Worker)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("TableView frame: \(workLogsTableView.frame)")
+        print("TableView content size: \(workLogsTableView.contentSize)")
     }
 
     private func setupUI() {
+        view.backgroundColor = .systemBackground
+        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
 
         contentView.addSubview(workPeriodLabel)
         contentView.addSubview(workLogsTableView)
         contentView.addSubview(totalWageLabel)
+
+        workPeriodLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        totalWageLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
 
         workLogsTableView.dataSource = self
         workLogsTableView.delegate = self
@@ -65,99 +63,110 @@ class WorkStatusViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
             workPeriodLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            workPeriodLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-            workPeriodLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            workPeriodLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            workPeriodLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
 
             workLogsTableView.topAnchor.constraint(equalTo: workPeriodLabel.bottomAnchor, constant: 20),
-            workLogsTableView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-            workLogsTableView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
-            workLogsTableView.heightAnchor.constraint(equalToConstant: 300),
+            workLogsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            workLogsTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            workLogsTableView.heightAnchor.constraint(equalToConstant: 400),
 
             totalWageLabel.topAnchor.constraint(equalTo: workLogsTableView.bottomAnchor, constant: 20),
-            totalWageLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-            totalWageLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            totalWageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            totalWageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             totalWageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
 
-    private func loadWorkLogs() {
-        // 여기서 실제 데이터 로드. 지금은 더미.
-        workLogs = dbUtils.readData(command: .WorkLog) as! [WorkLogModel]
-//        workLogs = [
-//            WorkLogModel(
-//                date: Date(),
-//                startTime: Date(),
-//                endTime: Date(),
-//                startPosition: CLLocationCoordinate2D(latitude: 0, longitude: 0),
-//                endPosition: CLLocationCoordinate2D(latitude: 0, longitude: 0))
-//        ]
+    private func loadAllData() {
+        loadWorker()
+        loadWorkPlace()
+        loadWorkLogs()
+        print("All data loaded")
     }
-    
-    private func loadWorkPlace() {
-        workplace = dbUtils.readData(command: .WorkPlace) as! WorkPlaceModel
-    }
-    
+
     private func loadWorker() {
-        worker = dbUtils.readData(command: .Worker) as! WorkerModel
+        worker = dbUtils.readData(command: .Worker) as? WorkerModel
+        print("Loaded worker: \(worker?.name ?? "No worker found")")
+    }
+
+    private func loadWorkPlace() {
+        workplace = dbUtils.readData(command: .WorkPlace) as? WorkPlaceModel
+        print("Loaded workplace: \(workplace?.workPlaceName ?? "No workplace found")")
+    }
+
+    private func loadWorkLogs() {
+        workLogs = dbUtils.readData(command: .WorkLog) as? [WorkLogModel] ?? []
+//        workLogs.sort { $0.date > $1.date }  // Sort logs by date, most recent first
+        print("Loaded \(workLogs.count) work logs")
+        for (index, log) in workLogs.enumerated() {
+                print("Log \(index): Date: \(log.date), Start: \(log.startTime), End: \(log.endTime)")
+            }
     }
 
     private func updateUI() {
         let workPeriod = calculateWorkPeriod()
         workPeriodLabel.text = "근무 기간: \(workPeriod)일"
+        print("Work period: \(workPeriod) days")
 
         let totalWage = calculateTotalWage()
         totalWageLabel.text = "총 급여: \(totalWage)원"
+        print("Total wage: \(totalWage) won")
 
         workLogsTableView.reloadData()
+        print("Table view reloaded")
     }
 
     private func calculateWorkPeriod() -> Int {
-        // 실제 계산 로직
         return workLogs.count
     }
 
     private func calculateTotalWage() -> Int {
-        // 실제 계산 로직 (총 일한 시간 * 시급)
-        var totalWorkTime = 0
-        var hourlyWage = workplace.hourlyWage
+        guard let hourlyWage = workplace?.hourlyWage else { return 0 }
         
-        for workLog in workLogs {
-            var workingTimeInDaily = commonUtils.timeDiff(
-                start: commonUtils.dateToString(date: workLog.endTime, format: "HH:mm"),
-                end: commonUtils.dateToString(date:workLog.startTime, format: "HH:mm"))
-            
-            totalWorkTime += workingTimeInDaily * hourlyWage
+        return workLogs.reduce(0) { totalWage, log in
+            let workingTimeInHours = commonUtils.timeDiff(
+                start: commonUtils.dateToString(date: log.startTime, format: "HH:mm"),
+                end: commonUtils.dateToString(date: log.endTime, format: "HH:mm"))
+            return totalWage + (workingTimeInHours * hourlyWage)
         }
-        
-        
-        return totalWorkTime
     }
 }
 
 extension WorkStatusViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numberOfRowsInSection called, returning \(workLogs.count)")
         return workLogs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("cellForRowAt called for row \(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkLogCell", for: indexPath)
         let workLog = workLogs[indexPath.row]
         
-        let date = commonUtils.dateToString(date: workLog.date , format: "yyyy-MM-dd")
+        let date = commonUtils.dateToString(date: workLog.date, format: "yyyy-MM-dd")
+        let startTime = commonUtils.dateToString(date: workLog.startTime, format: "HH:mm")
+        let endTime = commonUtils.dateToString(date: workLog.endTime, format: "HH:mm")
+        
+        let workingTimeInHours = commonUtils.timeDiff(
+            start: commonUtils.dateToString(date: workLog.startTime, format: "HH:mm"),
+            end: commonUtils.dateToString(date: workLog.endTime, format: "HH:mm"))
+        let dailyWage = workingTimeInHours * (workplace?.hourlyWage ?? 0)
 
-        cell.textLabel?.text = "근무일: \(date), 급여: \(workplace.hourlyWage)원"
-
+        cell.textLabel?.text = "근무일: \(date)\n시간: \(startTime) - \(endTime)\n일급: \(dailyWage)원"
+        cell.textLabel?.numberOfLines = 0
+        
         return cell
     }
 }

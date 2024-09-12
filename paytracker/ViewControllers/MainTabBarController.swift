@@ -23,7 +23,7 @@ class MainTabBarController: UITabBarController {
         attendanceVC.tabBarItem = UITabBarItem(title: "출퇴근", image: UIImage(systemName: "person.crop.circle.badge.checkmark"), tag: 0)
         
         // 근무 현황 (Work Status)
-        let workStatusVC = WorkStatusViewController(worker: WorkerModel(name: "테스트 사용자", email: "test@example.com"), workplace: WorkPlaceModel(workPlaceName: "", workPlaceAddress: "", workPlaceLocation: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), hourlyWage: 0))
+        let workStatusVC = WorkStatusViewController()
         let workStatusNavController = UINavigationController(rootViewController: workStatusVC)
         workStatusVC.tabBarItem = UITabBarItem(title: "근무 현황", image: UIImage(systemName: "clock"), tag: 1)
         
@@ -32,11 +32,11 @@ class MainTabBarController: UITabBarController {
         let workPlaceNavController = UINavigationController(rootViewController: workPlaceVC)
         workPlaceVC.tabBarItem = UITabBarItem(title: "근무지", image: UIImage(systemName: "mappin.and.ellipse"), tag: 2)
         
-        // 설정 (Settings)
-        let settingsVC = SettingsViewController()
-        let settingsNavController = UINavigationController(rootViewController: settingsVC)
-        settingsVC.tabBarItem = UITabBarItem(title: "설정", image: UIImage(systemName: "gear"), tag: 3)
+        // 내 정보 (My Profile)
+        let myProfileVC = MyProfileViewController()
+        let myProfileNavController = UINavigationController(rootViewController: myProfileVC)
+        myProfileVC.tabBarItem = UITabBarItem(title: "내 정보", image: UIImage(systemName: "person.circle"), tag: 3)
 
-        viewControllers = [attendanceNavController, workStatusNavController, workPlaceNavController, settingsNavController]
+        viewControllers = [attendanceNavController, workStatusNavController, workPlaceNavController, myProfileNavController]
     }
 }

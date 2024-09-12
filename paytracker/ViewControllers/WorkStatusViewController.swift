@@ -13,7 +13,8 @@ class WorkStatusViewController: UIViewController {
     private let workLogsTableView = UITableView()
     private let totalWageLabel = UILabel()
     
-    private let dbUtils = DBUtils()
+    private let dbUtils = DBUtils.shared
+    private let commonUtils = CommonUtils()
 
     init(worker: WorkerModel, workplace: WorkPlaceModel) {
         self.worker = worker
@@ -140,8 +141,10 @@ extension WorkStatusViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkLogCell", for: indexPath)
         let workLog = workLogs[indexPath.row]
+        
+        let date = commonUtils.dateToString(date: workLog.date , format: "yyyy-MM-dd")
 
-        cell.textLabel?.text = "Date: \(workLog.date), Wage: \(workplace.hourlyWage)원"
+        cell.textLabel?.text = "Date: \(date) , Wage: \(workplace.hourlyWage)원"
 
         return cell
     }

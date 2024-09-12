@@ -14,7 +14,7 @@ class AttendanceCheckViewController: UIViewController {
     
     var currentLocation: CLLocationCoordinate2D?
     
-    let dbUtils = DBUtils()
+    let dbUtils = DBUtils.shared
     let commonUtils = CommonUtils()
     
     var currentPosition: CLLocationCoordinate2D?

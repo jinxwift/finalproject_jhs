@@ -23,7 +23,7 @@ class WorkPlaceViewController: UIViewController {
     var workPlaceModel: WorkPlaceModel?
     var isExistWorkPlace = false
     
-    let dbUtils = DBUtils()
+    let dbUtils = DBUtils.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,7 +21,7 @@ class SplashViewController: UIViewController {
         return label
     }()
     
-    private let dbUtils = DBUtils()
+    private let dbUtils = DBUtils.shared
     private var userCount: Int = 0
 
     override func viewDidLoad() {

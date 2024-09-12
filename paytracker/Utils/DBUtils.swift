@@ -23,8 +23,12 @@ class DBUtils {
         case delete
     }
     
+    static let shared = DBUtils()
+    
     var database: OpaquePointer?
     let commonUtils = CommonUtils()
+    
+    init() {}
     
     func createTable(command: Command) -> Bool {
         var query = ""

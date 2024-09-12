@@ -38,7 +38,7 @@ class UserInfoViewController: UIViewController {
         loadExistingData()
     }
     
-    private let dbUtils = DBUtils()
+    private let dbUtils = DBUtils.shared
     private var userCount: Int = 0
     
     private func initDataBase() {

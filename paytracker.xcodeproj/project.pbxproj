@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B36AE786EE2F14DA1456AE8F /* Pods_paytracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9545757613F9CFF0604D0A7F /* Pods_paytracker.framework */; };
+		CB088C282C77607B006EA97F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB088C272C77607B006EA97F /* AppDelegate.swift */; };
+		CB088C2A2C77607B006EA97F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB088C292C77607B006EA97F /* SceneDelegate.swift */; };
+		CB088C2C2C77607B006EA97F /* WorkPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */; };
+		CB088C2F2C77607B006EA97F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CB088C2E2C77607B006EA97F /* Base */; };
+		CB088C312C77607C006EA97F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB088C302C77607C006EA97F /* Assets.xcassets */; };
+		CB088C342C77607C006EA97F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CB088C332C77607C006EA97F /* Base */; };
+		CB6EBB942C93032500F6FA5E /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6EBB932C93032500F6FA5E /* MyProfileViewController.swift */; };
+		CB6EBB962C930E6C00F6FA5E /* DummyDateGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6EBB952C930E6C00F6FA5E /* DummyDateGenerator.swift */; };
+		CB81E9182C8AEB49009182F5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB81E9172C8AEB49009182F5 /* DataManager.swift */; };
+		CB938FA22C7DD58300500081 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB938FA12C7DD58300500081 /* Models.swift */; };
+		E914B70F2C805DBC0076178E /* AttendanceCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */; };
+		E914B7112C8532C60076178E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B7102C8532C60076178E /* MainViewController.swift */; };
+		E914B7222C870AE70076178E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B71C2C870AE70076178E /* SplashViewController.swift */; };
+		E914B7232C870AE70076178E /* WorkStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B71D2C870AE70076178E /* WorkStatusViewController.swift */; };
+		E914B7242C870AE70076178E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B71E2C870AE70076178E /* UIViewControllerExtension.swift */; };
+		E914B7252C870AE70076178E /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B71F2C870AE70076178E /* UserInfoViewController.swift */; };
+		E914B7262C870AE70076178E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B7202C870AE70076178E /* SettingsViewController.swift */; };
+		E914B7272C870AE70076178E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E914B7212C870AE70076178E /* MainTabBarController.swift */; };
+		E93E57442C8F15D300FD90A6 /* DBUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93E57432C8F15D300FD90A6 /* DBUtils.swift */; };
+		E93E57462C91135400FD90A6 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93E57452C91135400FD90A6 /* CommonUtils.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09FF8659AB221109A58E7E13 /* Pods-paytracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-paytracker.debug.xcconfig"; path = "Target Support Files/Pods-paytracker/Pods-paytracker.debug.xcconfig"; sourceTree = "<group>"; };
+		9545757613F9CFF0604D0A7F /* Pods_paytracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_paytracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB088C242C77607B006EA97F /* paytracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = paytracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB088C272C77607B006EA97F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB088C292C77607B006EA97F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPlaceViewController.swift; sourceTree = "<group>"; };
+		CB088C2E2C77607B006EA97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB088C302C77607C006EA97F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB088C332C77607C006EA97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CB088C352C77607C006EA97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB6EBB932C93032500F6FA5E /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		CB6EBB952C930E6C00F6FA5E /* DummyDateGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDateGenerator.swift; sourceTree = "<group>"; };
+		CB81E9172C8AEB49009182F5 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		CB938FA12C7DD58300500081 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCheckViewController.swift; sourceTree = "<group>"; };
+		E914B7102C8532C60076178E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E914B71C2C870AE70076178E /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		E914B71D2C870AE70076178E /* WorkStatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkStatusViewController.swift; sourceTree = "<group>"; };
+		E914B71E2C870AE70076178E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		E914B71F2C870AE70076178E /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		E914B7202C870AE70076178E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E914B7212C870AE70076178E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E93E57432C8F15D300FD90A6 /* DBUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUtils.swift; sourceTree = "<group>"; };
+		E93E57452C91135400FD90A6 /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
+		FB1AB502B273993A5AE24263 /* Pods-paytracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-paytracker.release.xcconfig"; path = "Target Support Files/Pods-paytracker/Pods-paytracker.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB088C212C77607B006EA97F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B36AE786EE2F14DA1456AE8F /* Pods_paytracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68DCB1748358353AFE6C386C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9545757613F9CFF0604D0A7F /* Pods_paytracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5D1923DABC16982885FD8E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09FF8659AB221109A58E7E13 /* Pods-paytracker.debug.xcconfig */,
+				FB1AB502B273993A5AE24263 /* Pods-paytracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CB088C1B2C77607B006EA97F = {
+			isa = PBXGroup;
+			children = (
+				CB088C262C77607B006EA97F /* paytracker */,
+				CB088C252C77607B006EA97F /* Products */,
+				B5D1923DABC16982885FD8E0 /* Pods */,
+				68DCB1748358353AFE6C386C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CB088C252C77607B006EA97F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB088C242C77607B006EA97F /* paytracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB088C262C77607B006EA97F /* paytracker */ = {
+			isa = PBXGroup;
+			children = (
+				E93E57422C8F15B700FD90A6 /* Utils */,
+				E914B70D2C7FEBE00076178E /* ViewControllers */,
+				E914B70C2C7FEBCE0076178E /* Model */,
+				CB088C272C77607B006EA97F /* AppDelegate.swift */,
+				CB088C292C77607B006EA97F /* SceneDelegate.swift */,
+				CB088C2D2C77607B006EA97F /* Main.storyboard */,
+				CB088C302C77607C006EA97F /* Assets.xcassets */,
+				CB088C322C77607C006EA97F /* LaunchScreen.storyboard */,
+				CB088C352C77607C006EA97F /* Info.plist */,
+				CB81E9172C8AEB49009182F5 /* DataManager.swift */,
+				CB6EBB952C930E6C00F6FA5E /* DummyDateGenerator.swift */,
+			);
+			path = paytracker;
+			sourceTree = "<group>";
+		};
+		E914B70C2C7FEBCE0076178E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB938FA12C7DD58300500081 /* Models.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E914B70D2C7FEBE00076178E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E914B71E2C870AE70076178E /* UIViewControllerExtension.swift */,
+				E914B7212C870AE70076178E /* MainTabBarController.swift */,
+				E914B71C2C870AE70076178E /* SplashViewController.swift */,
+				E914B70E2C805DBC0076178E /* AttendanceCheckViewController.swift */,
+				E914B71F2C870AE70076178E /* UserInfoViewController.swift */,
+				E914B71D2C870AE70076178E /* WorkStatusViewController.swift */,
+				CB088C2B2C77607B006EA97F /* WorkPlaceViewController.swift */,
+				E914B7102C8532C60076178E /* MainViewController.swift */,
+				E914B7202C870AE70076178E /* SettingsViewController.swift */,
+				CB6EBB932C93032500F6FA5E /* MyProfileViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E93E57422C8F15B700FD90A6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E93E57432C8F15D300FD90A6 /* DBUtils.swift */,
+				E93E57452C91135400FD90A6 /* CommonUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB088C232C77607B006EA97F /* paytracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB088C382C77607C006EA97F /* Build configuration list for PBXNativeTarget "paytracker" */;
+			buildPhases = (
+				F019E3B7DDB53AE1E92E8E0E /* [CP] Check Pods Manifest.lock */,
+				CB088C202C77607B006EA97F /* Sources */,
+				CB088C212C77607B006EA97F /* Frameworks */,
+				CB088C222C77607B006EA97F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = paytracker;
+			productName = paytracker;
+			productReference = CB088C242C77607B006EA97F /* paytracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB088C1C2C77607B006EA97F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					CB088C232C77607B006EA97F = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = CB088C1F2C77607B006EA97F /* Build configuration list for PBXProject "paytracker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB088C1B2C77607B006EA97F;
+			productRefGroup = CB088C252C77607B006EA97F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB088C232C77607B006EA97F /* paytracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB088C222C77607B006EA97F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB088C312C77607C006EA97F /* Assets.xcassets in Resources */,
+				CB088C342C77607C006EA97F /* Base in Resources */,
+				CB088C2F2C77607B006EA97F /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F019E3B7DDB53AE1E92E8E0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-paytracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB088C202C77607B006EA97F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB088C2C2C77607B006EA97F /* WorkPlaceViewController.swift in Sources */,
+				E93E57462C91135400FD90A6 /* CommonUtils.swift in Sources */,
+				CB088C282C77607B006EA97F /* AppDelegate.swift in Sources */,
+				E914B7272C870AE70076178E /* MainTabBarController.swift in Sources */,
+				E914B7262C870AE70076178E /* SettingsViewController.swift in Sources */,
+				E914B7242C870AE70076178E /* UIViewControllerExtension.swift in Sources */,
+				E93E57442C8F15D300FD90A6 /* DBUtils.swift in Sources */,
+				E914B70F2C805DBC0076178E /* AttendanceCheckViewController.swift in Sources */,
+				CB6EBB962C930E6C00F6FA5E /* DummyDateGenerator.swift in Sources */,
+				E914B7112C8532C60076178E /* MainViewController.swift in Sources */,
+				CB088C2A2C77607B006EA97F /* SceneDelegate.swift in Sources */,
+				E914B7222C870AE70076178E /* SplashViewController.swift in Sources */,
+				E914B7252C870AE70076178E /* UserInfoViewController.swift in Sources */,
+				CB938FA22C7DD58300500081 /* Models.swift in Sources */,
+				CB81E9182C8AEB49009182F5 /* DataManager.swift in Sources */,
+				CB6EBB942C93032500F6FA5E /* MyProfileViewController.swift in Sources */,
+				E914B7232C870AE70076178E /* WorkStatusViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CB088C2D2C77607B006EA97F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB088C2E2C77607B006EA97F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CB088C322C77607C006EA97F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB088C332C77607C006EA97F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CB088C362C77607C006EA97F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB088C372C77607C006EA97F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB088C392C77607C006EA97F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09FF8659AB221109A58E7E13 /* Pods-paytracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQY92L3W6X;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = paytracker/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "출, 퇴근 등록을 위해 권한 승인이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "출, 퇴근 등록을 위해 권한 승인이 필요합니다.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.jinxwift.paytracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB088C3A2C77607C006EA97F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB1AB502B273993A5AE24263 /* Pods-paytracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQY92L3W6X;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = paytracker/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "출, 퇴근 등록을 위해 권한 승인이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "출, 퇴근 등록을 위해 권한 승인이 필요합니다.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.jinxwift.paytracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB088C1F2C77607B006EA97F /* Build configuration list for PBXProject "paytracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB088C362C77607C006EA97F /* Debug */,
+				CB088C372C77607C006EA97F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB088C382C77607C006EA97F /* Build configuration list for PBXNativeTarget "paytracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB088C392C77607C006EA97F /* Debug */,
+				CB088C3A2C77607C006EA97F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB088C1C2C77607B006EA97F /* Project object */;
+}

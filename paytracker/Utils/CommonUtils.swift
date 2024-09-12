@@ -37,4 +37,15 @@ class CommonUtils {
         
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
+    
+    func timeDiff(start: String, end: String) -> Int {
+        let format = DateFormatter()
+        format.dateFormat = "HH:mm"
+                
+        guard let startTime = format.date(from: start) else {return 0}
+        guard let endTime = format.date(from: end) else {return 0}
+
+        var result = Int(endTime.timeIntervalSince(startTime))
+        return result
+    }
 }

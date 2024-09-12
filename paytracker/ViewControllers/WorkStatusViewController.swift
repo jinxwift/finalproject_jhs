@@ -128,8 +128,20 @@ class WorkStatusViewController: UIViewController {
     }
 
     private func calculateTotalWage() -> Int {
-        // 실제 계산 로직
-        return 0 //workLogs.reduce(0) { $0 + $1.workPlace.hourlyWage }
+        // 실제 계산 로직 (총 일한 시간 * 시급)
+        var totalWorkTime = 0
+        var hourlyWage = workplace.hourlyWage
+        
+        for workLog in workLogs {
+            var workingTimeInDaily = commonUtils.timeDiff(
+                start: commonUtils.dateToString(date: workLog.endTime, format: "HH:mm"),
+                end: commonUtils.dateToString(date:workLog.startTime, format: "HH:mm"))
+            
+            totalWorkTime += workingTimeInDaily * hourlyWage
+        }
+        
+        
+        return totalWorkTime
     }
 }
 

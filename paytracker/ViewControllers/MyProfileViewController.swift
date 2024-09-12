@@ -8,21 +8,21 @@ class MyProfileViewController: UIViewController {
     
     private let dbUtils = DBUtils.shared
     
-    private let generateDummyDataButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Generate Test Data", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    private let generateDummyDataButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("Generate Test Data", for: .normal)
+//        button.backgroundColor = .systemBlue
+//        button.setTitleColor(.white, for: .normal)
+//        button.layer.cornerRadius = 10
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         loadData()
-        setupGenerateDummyDataButton()
+//        setupGenerateDummyDataButton()
     }
     
     private func setupUI() {
@@ -45,23 +45,23 @@ class MyProfileViewController: UIViewController {
         tableView.separatorStyle = .none
     }
     
-    private func setupGenerateDummyDataButton() {
-        view.addSubview(generateDummyDataButton)
-        NSLayoutConstraint.activate([
-            generateDummyDataButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            generateDummyDataButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            generateDummyDataButton.widthAnchor.constraint(equalToConstant: 200),
-            generateDummyDataButton.heightAnchor.constraint(equalToConstant: 44)
-        ])
-        
-        generateDummyDataButton.addTarget(self, action: #selector(generateTestDataTapped), for: .touchUpInside)
-        
-    }
+//    private func setupGenerateDummyDataButton() {
+//        view.addSubview(generateDummyDataButton)
+//        NSLayoutConstraint.activate([
+//            generateDummyDataButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+//            generateDummyDataButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            generateDummyDataButton.widthAnchor.constraint(equalToConstant: 200),
+//            generateDummyDataButton.heightAnchor.constraint(equalToConstant: 44)
+//        ])
+//        
+//        generateDummyDataButton.addTarget(self, action: #selector(generateTestDataTapped), for: .touchUpInside)
+//        
+//    }
     
-    @objc private func generateTestDataTapped() {
-        DummyDataGenerator.shared.generateCompleteTestScenario()
-        showAlert(message: "Complete test scenario data generated successfully")
-    }
+//    @objc private func generateTestDataTapped() {
+//        DummyDataGenerator.shared.generateCompleteTestScenario()
+//        showAlert(message: "Complete test scenario data generated successfully")
+//    }
     
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "Debug", message: message, preferredStyle: .alert)

@@ -45,7 +45,7 @@ class CommonUtils {
         guard let startTime = format.date(from: start) else {return 0}
         guard let endTime = format.date(from: end) else {return 0}
 
-        var result = Int(endTime.timeIntervalSince(startTime))
+        let result = Int(endTime.timeIntervalSince(startTime)) / 3600
         return result
     }
 }
